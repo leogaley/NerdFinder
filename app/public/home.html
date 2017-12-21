@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>NerdFinder</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>NERD finder</h1>
+      <button class="btn btn-link btn-lg"><a href="/survey">Click here to find a friend with the same relative level of nerd.</a></button>
+    </div>
+
+
+
+    <p> There are <span id="nerd-count">TBD</span> potential friends in the database.</p>
+
+    <hr>
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/nerds">API Friends List</a> | <a href="https://github.com/leogaley/NerdFinder.git">GitHub Repo</a></p>
+      </div>
+    </footer>
+
+  </div>
+
+ 
+
+  <script type="text/javascript">
+    //show number of nerds cached
+    $(document).ready(function(){
+      $.get("/api/nerds",function(nerds){
+        $("#nerd-count").text(nerds.length);
+      });
+
+    });
+       
+  </script>
+
+</body>
+
+</html>

@@ -5,14 +5,14 @@ var router = express.Router();
 
 //Middle ware that is specific to this router
 router.use(function timeLog(request, response, next) {
-  console.log('Time: ', Date.now());
+  console.log('Time (htmlRoutes): ', Date.now());//just time stamping as things pass through
   next();
 });
 
 
 // Define the home page route
-router.get('/', function(req, res) {
-  res.send('home page');
+router.get('/', function(request, response) {
+  response.sendFile(path.join(__dirname,"../public","home.html"));
 });
 
 router.get("/survey", function(request, response) {
