@@ -10,9 +10,6 @@ var getDifference = function (number1,number2) {
 
 //get difference between values within two arrays.  
 var getArrayTotalDifference = function(array1,array2){
-  
-  console.log(array1);
-  console.log(array2);
   var totalDifference = 0;
   for (var i=0;i<array1.length;i++){
     totalDifference += getDifference(array1[i],array2[i]);
